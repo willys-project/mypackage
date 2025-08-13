@@ -1,4 +1,4 @@
-module mypackage
+module github.com/willys-project/mypackage
 
 go 1.24.5
 
