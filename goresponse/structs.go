@@ -1,6 +1,4 @@
-// response/structs.go
-
-package response
+package goresponse
 
 // ApiResponse adalah struktur untuk response API umum
 type ApiResponse struct {
