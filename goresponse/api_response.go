@@ -2,6 +2,7 @@ package goresponse
 
 import (
 	"encoding/json"
+	"mypackage/model"
 	"net/http"
 )
 
@@ -20,7 +21,7 @@ func ApiResMethodNotAllowed(w http.ResponseWriter) {
 // apiResUnprocEntity mengirimkan response 422 Unprocessable Entity dengan message
 func ApiResUnprocEntity(w http.ResponseWriter, message string) {
 	w.WriteHeader(http.StatusUnprocessableEntity)
-	response := ApiResponse{
+	response := model.ApiResponse{
 		Message: message,
 		Status:  http.StatusUnprocessableEntity,
 	}
@@ -46,7 +47,7 @@ func ApiResOK(w http.ResponseWriter, data interface{}) {
 // apiResUnauthorized mengirimkan response 401 Unauthorized dengan message
 func ApiResUnauthorized(w http.ResponseWriter, message string) {
 	w.WriteHeader(http.StatusUnauthorized)
-	response := ApiResponse{
+	response := model.ApiResponse{
 		Message: message,
 		Status:  http.StatusUnauthorized,
 	}

@@ -1,4 +1,4 @@
-package goresponse
+package model
 
 // ApiResponse adalah struktur untuk response API umum
 type ApiResponse struct {

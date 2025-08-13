@@ -1,4 +1,4 @@
-package goresponse
+package handler
 
 import (
 	"encoding/json"
