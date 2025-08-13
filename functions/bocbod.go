@@ -1,8 +1,8 @@
 package functions
 
-import "github.com/willys-project/mypackage/goresponse"
+import "github.com/willys-project/mypackage/model"
 
-func reduceBoc(boc []goresponse.BOC) map[string][]string {
+func reduceBoc(boc []model.BOC) map[string][]string {
 	data := make(map[string][]string)
 
 	for _, currVal := range boc {

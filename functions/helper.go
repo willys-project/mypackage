@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"errors"
 	"io/ioutil"
-	"mypackage/goresponse"
-	"mypackage/handler"
 	"net/http"
 	"time"
 
 	"cloud.google.com/go/storage"
+	"github.com/willys-project/mypackage/goresponse"
+	"github.com/willys-project/mypackage/handler"
 )
 
 var ctx = context.Background() // Pastikan kamu sudah mengimpor context package

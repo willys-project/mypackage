@@ -9,7 +9,6 @@ require (
 	github.com/getsentry/sentry-go v0.35.0
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/golang-jwt/jwt/v5 v5.3.0
-	github.com/willys-project/mypackage v0.0.0-20250813075438-816e506a65a3
 )
 
 require (

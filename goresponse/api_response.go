@@ -2,8 +2,9 @@ package goresponse
 
 import (
 	"encoding/json"
-	"mypackage/model"
 	"net/http"
+
+	"github.com/willys-project/mypackage/model"
 )
 
 // apiResNotFound mengirimkan response 404 Not Found

@@ -2,11 +2,11 @@ package config
 
 import (
 	"context"
-	"mypackage/functions"
 	"sync"
 
 	"cloud.google.com/go/bigquery"
 	"github.com/go-redis/redis"
+	"github.com/willys-project/mypackage/functions"
 )
 
 // Global variables
