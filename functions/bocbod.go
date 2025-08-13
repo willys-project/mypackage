@@ -1,6 +1,6 @@
 package functions
 
-import "github.com/willys-project/mypackage/model"
+import "mypackage/model"
 
 func reduceBoc(boc []model.BOC) map[string][]string {
 	data := make(map[string][]string)
