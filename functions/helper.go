@@ -18,7 +18,7 @@ var ctx = context.Background() // Pastikan kamu sudah mengimpor context package
 // Pastikan kamu sudah menginstal package ini
 
 // isEmpty checks if the data is empty
-func isEmpty(data interface{}) bool {
+func IsEmpty(data interface{}) bool {
 	switch v := data.(type) {
 	case string:
 		return v == ""
@@ -31,7 +31,7 @@ func isEmpty(data interface{}) bool {
 	}
 }
 
-func validateParameters(w http.ResponseWriter, r *http.Request) bool {
+func ValidateParameters(w http.ResponseWriter, r *http.Request) bool {
 	if r.URL.Query().Get("secCode") == "" {
 		goresponse.ApiResUnprocEntity(w, "secCode is required")
 		return false
@@ -39,7 +39,7 @@ func validateParameters(w http.ResponseWriter, r *http.Request) bool {
 	return true
 }
 
-func getFile(secCode string, bucketName string, objectPrefix string) (map[string]interface{}, error) {
+func GetFile(secCode string, bucketName string, objectPrefix string) (map[string]interface{}, error) {
 
 	// Establish a connection to Google Cloud Storage
 	client, err := storage.NewClient(ctx)
@@ -83,7 +83,7 @@ func getFile(secCode string, bucketName string, objectPrefix string) (map[string
 	return dataMap, nil
 }
 
-func limitToLastMonth(ipoUpdatedSince string, w http.ResponseWriter) bool {
+func LimitToLastMonth(ipoUpdatedSince string, w http.ResponseWriter) bool {
 	// Parse the date in the expected format (yyyy-MM-dd)
 	ipoUpdatedTime, err := time.Parse("2006-01-02", ipoUpdatedSince)
 	if err != nil {
