@@ -17,7 +17,7 @@ var ctx = context.Background() // Pastikan kamu sudah mengimpor context package
 
 // Pastikan kamu sudah menginstal package ini
 
-// isEmpty checks if the data is empty
+// IsEmpty checks if the provided data is empty.
 func IsEmpty(data interface{}) bool {
 	switch v := data.(type) {
 	case string:
@@ -31,6 +31,7 @@ func IsEmpty(data interface{}) bool {
 	}
 }
 
+// ValidateParameters checks if the required "secCode" parameter is present in the request and writes an error response if missing.
 func ValidateParameters(w http.ResponseWriter, r *http.Request) bool {
 	if r.URL.Query().Get("secCode") == "" {
 		goresponse.ApiResUnprocEntity(w, "secCode is required")
@@ -83,6 +84,7 @@ func GetFile(secCode string, bucketName string, objectPrefix string) (map[string
 	return dataMap, nil
 }
 
+// LimitToLastMonth checks if the given date is within the last month and writes an error to the response if not.
 func LimitToLastMonth(ipoUpdatedSince string, w http.ResponseWriter) bool {
 	// Parse the date in the expected format (yyyy-MM-dd)
 	ipoUpdatedTime, err := time.Parse("2006-01-02", ipoUpdatedSince)
