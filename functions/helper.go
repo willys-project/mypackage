@@ -34,8 +34,8 @@ func IsEmpty(data interface{}) bool {
 }
 
 func GetAppName() string {
-	_, file, _, _ := runtime.Caller(0)                             // Ambil nama file sumber kode
-	return filepath.Base(file[:len(file)-len(filepath.Ext(file))]) // Ambil nama file tanpa ekstensi
+	_, file, _, _ := runtime.Caller(0)
+	return filepath.Base(file[:len(file)-len(filepath.Ext(file))])
 }
 
 // ValidateParameters checks if the required "secCode" parameter is present in the request and writes an error response if missing.
