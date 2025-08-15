@@ -33,6 +33,7 @@ func IsEmpty(data interface{}) bool {
 	}
 }
 
+// GetAppName returns the name of the current application file.
 func GetAppName() string {
 	_, file, _, _ := runtime.Caller(0)
 	return filepath.Base(file[:len(file)-len(filepath.Ext(file))])
