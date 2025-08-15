@@ -1,8 +1,8 @@
 package functions
 
-import "mypackage/model"
+import "github.com/willys-project/mypackage/model"
 
-func reduceBoc(boc []model.BOC) map[string][]string {
+func ReduceBoc(boc []model.BOC) map[string][]string {
 	data := make(map[string][]string)
 
 	for _, currVal := range boc {
