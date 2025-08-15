@@ -13,6 +13,7 @@ import (
 	"cloud.google.com/go/storage"
 	"github.com/willys-project/mypackage/goresponse"
 	"github.com/willys-project/mypackage/handler"
+	"github.com/willys-project/mypackage/model"
 )
 
 var ctx = context.Background() // Pastikan kamu sudah mengimpor context package
