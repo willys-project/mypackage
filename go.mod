@@ -1,4 +1,4 @@
-module mypackage
+module github.com/willys-project/mypackage
 
 go 1.24.5
 
@@ -9,7 +9,6 @@ require (
 	github.com/getsentry/sentry-go v0.35.0
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/golang-jwt/jwt/v5 v5.3.0
-	github.com/willys-project/mypackage v0.0.0-20250813091849-7aed3f325e13
 )
 
 require (
@@ -41,6 +40,8 @@ require (
 	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.5 // indirect
 	github.com/nxadm/tail v1.4.11 // indirect
+	github.com/onsi/ginkgo v1.16.5 // indirect
+	github.com/onsi/gomega v1.38.0 // indirect
 	github.com/pierrec/lz4/v4 v4.1.18 // indirect
 	github.com/planetscale/vtprotobuf v0.6.1-0.20240319094008-0393e58bdf10 // indirect
 	github.com/spiffe/go-spiffe/v2 v2.5.0 // indirect
