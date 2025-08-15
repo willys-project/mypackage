@@ -118,7 +118,7 @@ func LimitToLastMonth(ipoUpdatedSince string, w http.ResponseWriter) bool {
 	return true
 }
 
-func checkIfExist(key model.ObjKey) int {
+func CheckIfExist(key model.ObjKey) int {
 	if _, ok := cacheMap[key]; ok {
 		return 1
 	}
