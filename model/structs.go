@@ -1,7 +1,7 @@
 package model
 
-// ApiResponse adalah struktur untuk response API umum
-type ApiResponse struct {
+// APIResponse adalah struktur untuk response API umum
+type APIResponse struct {
 	Message string `json:"message"`
 	Status  int    `json:"status"`
 }
@@ -15,14 +15,16 @@ type BOC struct {
 
 // FinancialData adalah struktur untuk data keuangan
 type FinancialData struct {
-	Url        string `json:"url"`
+	URL        string `json:"url"`
 	LastUpdate string `json:"lastUpdate"`
 }
 
+// CustomError represents a custom error structure.
 type CustomError struct {
 	message string
 }
 
+// DataTrade adalah struktur untuk data perdagangan saham harian
 type DataTrade struct {
 	Date      string `json:"date"`
 	Open      int64  `json:"open"`
@@ -32,4 +34,13 @@ type DataTrade struct {
 	Volume    int64  `json:"volume"`
 	Value     int64  `json:"value"`
 	Frequency int64  `json:"frequency"`
+}
+
+type ObjKey struct {
+	SecCode      string
+	Granularity  string
+	StartDate    string
+	EndDate      string
+	AppName      string
+	CacheVersion int
 }

@@ -33,7 +33,8 @@ var (
 	JwtSecret, _   = functions.GetSecret(projectID, "jwt-secret")
 )
 
-func ValidateParameters(req *http.Request) (bool, error) {
+// ValidsecCodegranularitystartDateendDate validates secCode, granularity, startDate, and endDate parameters from the request.
+func ValidsecCodegranularitystartDateendDate(req *http.Request) (bool, error) {
 	queryParams := req.URL.Query()
 
 	secCode := queryParams.Get("secCode")

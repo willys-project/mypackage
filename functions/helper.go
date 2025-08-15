@@ -16,6 +16,7 @@ import (
 )
 
 var ctx = context.Background() // Pastikan kamu sudah mengimpor context package
+var cacheMap = make(map[model.ObjKey]interface{})
 
 // Pastikan kamu sudah menginstal package ini
 
@@ -114,4 +115,11 @@ func LimitToLastMonth(ipoUpdatedSince string, w http.ResponseWriter) bool {
 	}
 
 	return true
+}
+
+func checkIfExist(key ObjKey) int {
+	if _, ok := cacheMap[key]; ok {
+		return 1
+	}
+	return 0
 }
