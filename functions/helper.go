@@ -6,6 +6,8 @@ import (
 	"errors"
 	"io/ioutil"
 	"net/http"
+	"path/filepath"
+	"runtime"
 	"time"
 
 	"cloud.google.com/go/storage"
@@ -29,6 +31,11 @@ func IsEmpty(data interface{}) bool {
 	default:
 		return false
 	}
+}
+
+func GetAppName() string {
+	_, file, _, _ := runtime.Caller(0)                             // Ambil nama file sumber kode
+	return filepath.Base(file[:len(file)-len(filepath.Ext(file))]) // Ambil nama file tanpa ekstensi
 }
 
 // ValidateParameters checks if the required "secCode" parameter is present in the request and writes an error response if missing.

@@ -18,3 +18,18 @@ type FinancialData struct {
 	Url        string `json:"url"`
 	LastUpdate string `json:"lastUpdate"`
 }
+
+type CustomError struct {
+	message string
+}
+
+type DataTrade struct {
+	Date      string `json:"date"`
+	Open      int64  `json:"open"`
+	High      int64  `json:"high"`
+	Low       int64  `json:"low"`
+	Close     int64  `json:"close"`
+	Volume    int64  `json:"volume"`
+	Value     int64  `json:"value"`
+	Frequency int64  `json:"frequency"`
+}
