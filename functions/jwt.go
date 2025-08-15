@@ -9,7 +9,7 @@ import (
 	"github.com/golang-jwt/jwt/v5" // Pastikan kamu sudah menginstal package ini
 )
 
-// getJWTClaim mengekstrak satu klaim dari token JWT
+// GetJWTClaim mengekstrak satu klaim dari token JWT
 func GetJWTClaim(token *jwt.Token, claimKey string) (interface{}, error) {
 	if token == nil {
 		return nil, fmt.Errorf("nil token provided")
@@ -23,6 +23,7 @@ func GetJWTClaim(token *jwt.Token, claimKey string) (interface{}, error) {
 	return nil, fmt.Errorf("invalid token or claims")
 }
 
+// GetSecret retrieves the latest version of a secret from Google Secret Manager for the given project and secret ID.
 func GetSecret(projectID, secretID string) (string, error) {
 	// Create a context and Secret Manager client
 	ctx := context.Background()

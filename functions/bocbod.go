@@ -2,6 +2,7 @@ package functions
 
 import "github.com/willys-project/mypackage/model"
 
+// ReduceBoc groups BOC structs by Jabatan and returns a map of Jabatan to Nama slices.
 func ReduceBoc(boc []model.BOC) map[string][]string {
 	data := make(map[string][]string)
 
