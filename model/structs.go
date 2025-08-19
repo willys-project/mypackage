@@ -27,6 +27,7 @@ type CustomError struct {
 // DataTrade adalah struktur untuk data perdagangan saham harian
 type DataTrade struct {
 	Date      string `json:"date"`
+	Time      int64  `json:"time"`
 	Open      int64  `json:"open"`
 	High      int64  `json:"high"`
 	Low       int64  `json:"low"`
@@ -36,6 +37,7 @@ type DataTrade struct {
 	Frequency int64  `json:"frequency"`
 }
 
+// ObjKey adalah struktur untuk menyimpan kunci objek terkait data perdagangan
 type ObjKey struct {
 	SecCode      string
 	Granularity  string
