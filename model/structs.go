@@ -24,7 +24,7 @@ type CustomError struct {
 	message string
 }
 
-// DataTrade adalah struktur untuk data perdagangan saham harian
+// DataTrade adalah struktur untuk data perdagangan saham harian endpoint dp/int
 type DataTrade struct {
 	Date      string `json:"date"`
 	Time      string `json:"time"`
