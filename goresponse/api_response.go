@@ -7,19 +7,19 @@ import (
 	"github.com/willys-project/mypackage/model"
 )
 
-// apiResNotFound mengirimkan response 404 Not Found
+// ApiResNotFound mengirimkan response 404 Not Found
 func ApiResNotFound(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusNotFound)
 	w.Write([]byte("Not Found"))
 }
 
-// apiResMethodNotAllowed mengirimkan response 405 Method Not Allowed
+// ApiResMethodNotAllowed mengirimkan response 405 Method Not Allowed
 func ApiResMethodNotAllowed(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusMethodNotAllowed)
 	w.Write([]byte("Method Not Allowed"))
 }
 
-// apiResUnprocEntity mengirimkan response 422 Unprocessable Entity dengan message
+// ApiResUnprocEntity mengirimkan response 422 Unprocessable Entity dengan message
 func ApiResUnprocEntity(w http.ResponseWriter, message string) {
 	w.WriteHeader(http.StatusUnprocessableEntity)
 	response := model.APIResponse{
@@ -29,7 +29,7 @@ func ApiResUnprocEntity(w http.ResponseWriter, message string) {
 	json.NewEncoder(w).Encode(response)
 }
 
-// apiResOK mengirimkan response 200 OK dengan data, atau 204 No Content jika data kosong
+// ApiResOK mengirimkan response 200 OK dengan data, atau 204 No Content jika data kosong
 func ApiResOK(w http.ResponseWriter, data interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -45,8 +45,8 @@ func ApiResOK(w http.ResponseWriter, data interface{}) {
 	json.NewEncoder(w).Encode(data)
 }
 
-// apiResUnauthorized mengirimkan response 401 Unauthorized dengan message
-func ApiResUnauthorized(w http.ResponseWriter, message string) {
+// APIResUnauthorized mengirimkan response 401 Unauthorized dengan message
+func APIResUnauthorized(w http.ResponseWriter, message string) {
 	w.WriteHeader(http.StatusUnauthorized)
 	response := model.APIResponse{
 		Message: message,
@@ -70,4 +70,14 @@ func isEmpty(data interface{}) bool {
 		return len(v) == 0
 	}
 	return false
+}
+
+// APIResBadRequest sends a 400 Bad Request response with a message.
+func APIResBadRequest(w http.ResponseWriter, message string) {
+	w.WriteHeader(http.StatusUnauthorized)
+	response := model.APIResponse{
+		Message: message,
+		Status:  http.StatusBadRequest,
+	}
+	json.NewEncoder(w).Encode(response)
 }
