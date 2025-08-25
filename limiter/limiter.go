@@ -6,27 +6,16 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
-	"sync"
 	"time"
 
 	"github.com/go-redis/redis" // v6
-
-	// Sesuaikan path import di bawah sesuai project Anda
 	"github.com/willys-project/mypackage/auth"
 	"github.com/willys-project/mypackage/daterange"
 	"github.com/willys-project/mypackage/handler"
 )
 
-// ====== Dependencies & State (mengikuti pola kode asli) ======
-var (
-	RedisClient *redis.Client
-	Debug       bool
-	Secret      string
-	mu          sync.Mutex
-)
-
 // LimitAccess limits the number of requests per month for a given API key and path.
-func LimitAccess(maxRequests int, next http.HandlerFunc) http.HandlerFunc {
+func LimitAccess(maxRequests int, RedisClient *redis.Client, Debug bool, next http.HandlerFunc) http.HandlerFunc {
 	return func(res http.ResponseWriter, req *http.Request) {
 		if Debug {
 			fmt.Println("proses limitAccess")
@@ -37,11 +26,16 @@ func LimitAccess(maxRequests int, next http.HandlerFunc) http.HandlerFunc {
 
 		// Mendapatkan header Authorization
 		authorizationHeader := req.Header.Get("Authorization")
-		fmt.Println("proses Authorization Header", authorizationHeader)
+		if Debug {
+			fmt.Println("proses Authorization Header", authorizationHeader)
+		}
 		if strings.HasPrefix(authorizationHeader, "Bearer ") {
 			Bearer = strings.TrimPrefix(authorizationHeader, "Bearer ")
 		}
-		fmt.Println("proses Bearer", Bearer)
+
+		if Debug {
+			fmt.Println("proses Bearer", Bearer)
+		}
 
 		// Verifikasi JWT Token
 		token, err := auth.VerifyJWTToken(Bearer, Secret)
