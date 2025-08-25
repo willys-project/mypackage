@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/go-redis/redis" // v6
@@ -13,6 +14,8 @@ import (
 	"github.com/willys-project/mypackage/daterange"
 	"github.com/willys-project/mypackage/handler"
 )
+
+var mu sync.Mutex
 
 // LimitAccess limits the number of requests per month for a given API key and path.
 func LimitAccess(maxRequests int, RedisClient *redis.Client, Debug bool, Secret string, next http.HandlerFunc) http.HandlerFunc {
