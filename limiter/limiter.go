@@ -15,7 +15,7 @@ import (
 )
 
 // LimitAccess limits the number of requests per month for a given API key and path.
-func LimitAccess(maxRequests int, RedisClient *redis.Client, Debug bool, next http.HandlerFunc) http.HandlerFunc {
+func LimitAccess(maxRequests int, RedisClient *redis.Client, Debug bool, Secret string, next http.HandlerFunc) http.HandlerFunc {
 	return func(res http.ResponseWriter, req *http.Request) {
 		if Debug {
 			fmt.Println("proses limitAccess")
