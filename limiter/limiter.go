@@ -25,7 +25,7 @@ var (
 	mu          sync.Mutex
 )
 
-// ====== LimitAccess (logic sama persis dengan kode sumber Kakak) ======
+// LimitAccess limits the number of requests per month for a given API key and path.
 func LimitAccess(maxRequests int, next http.HandlerFunc) http.HandlerFunc {
 	return func(res http.ResponseWriter, req *http.Request) {
 		if Debug {
